@@ -527,9 +527,8 @@
             // 
             this.mainEnterance.Location = new System.Drawing.Point(10, 6);
             this.mainEnterance.Name = "mainEnterance";
-            this.mainEnterance.Size = new System.Drawing.Size(617, 23);
+            this.mainEnterance.Size = new System.Drawing.Size(593, 23);
             this.mainEnterance.TabIndex = 27;
-            this.mainEnterance.Text = "C:\\temp\\bminer-v2.0.0-24861a7\\bminer.exe -api 127.0.0.1:1880 -uri stratum://";
             this.mainEnterance.Visible = false;
             // 
             // maxTemp

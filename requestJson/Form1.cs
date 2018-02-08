@@ -27,9 +27,23 @@ namespace requestJson
         {
             InitializeComponent();
             InitInfo();
-            autoreader(@"C:\temp\bminer-v2.0.0-24861a7\saveUserInput.ini");
+            string path = System.IO.Directory.GetCurrentDirectory();
+            Console.WriteLine(path);
+            Console.WriteLine(path.GetType());
+            string bminer1 = @"bminer -api 127.0.0.1:1880 -uri stratum://";
+            DirectoryInfo folder = new DirectoryInfo(path);
+            string bminerPath = Path.Combine(path, bminer1);
+            Console.WriteLine(bminerPath);
+            this.mainEnterance.Text += bminerPath;
+
+            string autoRead = @"saveUserInput.ini";
+            string autoReadPath = Path.Combine(path, autoRead);
+
+            autoreader(autoReadPath);
             Administrator();
-            }
+
+           
+        }
 
         //page1
         private BatStatus curBatSataus = BatStatus.NONE;
@@ -38,6 +52,8 @@ namespace requestJson
 
         private void InitInfo()
         {
+
+
             //curProcess.OutputDataReceived -= new DataReceivedEventHandler(ProcessOutDataReceived);
             ProcessStartInfo p = new ProcessStartInfo();
             p.FileName = "cmd.exe";
@@ -504,7 +520,10 @@ namespace requestJson
             {
                 //用户选择确认的操作
                 stopApp();
-                this.autoWriter(@"C:\temp\bminer-v2.0.0-24861a7\saveUserInput.ini");
+                string path1 = System.IO.Directory.GetCurrentDirectory();
+                string autoWrite = @"saveUserInput.ini";
+                string autoWritePath = Path.Combine(path1, autoWrite);
+                this.autoWriter(autoWritePath);
                 //Environment.Exit(1);
                 Dispose();
                 Application.Exit();
@@ -529,7 +548,7 @@ namespace requestJson
 
             if (string.IsNullOrEmpty(wltAdd.Text) || string.IsNullOrEmpty(minName.Text))
             {
-                MessageBox.Show("请检查 是否有未填写的内容");
+                MessageBox.Show("请检查 是否有未填写的内容`");
                 return;
             }
 
